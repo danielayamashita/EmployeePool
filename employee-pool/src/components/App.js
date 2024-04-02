@@ -1,10 +1,15 @@
 import '../css/index.css';
 import { connect} from "react-redux";
 import {handleInitialData} from "../actions/shared"
-import Nav from "./Nav"
+
 import { Route, Routes } from "react-router-dom";
-import LoginPage from './LoginPage';
+
 import {useEffect} from "react";
+
+import LoginPage from './LoginPage';
+import Dashboard from "./Dashboard"
+import Leaderboard from "./Leaderboard"
+import NewPool from "./NewPool"
 
 const App = (props) => {
 
@@ -14,10 +19,12 @@ const App = (props) => {
 
   return (
     <div>
-      <Nav/>
+      
       <Routes>
         <Route path="/" exact element ={<LoginPage/>}/>
-        <Route path="/new" element ={<LoginPage/>}/>
+        <Route path="/Dashboard/:id" element ={<Dashboard/>}/>
+        <Route path="/leaderboard/:id" element ={<Leaderboard/>}/>
+        <Route path="/new/:id" element ={<NewPool/>}/>
       </Routes>
     </div>
   );

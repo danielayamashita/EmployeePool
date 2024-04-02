@@ -22,6 +22,17 @@ code {
   position: relative;
 }
 
+.btn:hover {
+  border-color: rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+}
+
+.btn:focus {
+  outline: 0;
+  font-weight: 700;
+  border-width: 2px;
+}
+
 .container {
   max-width: 1000px;
   margin: 0 auto;
@@ -38,6 +49,24 @@ code {
   flex-direction: row;
   justify-content: flex-start;
   text-decoration: none;
+}
+
+.nav li:first-child {
+  padding-left: 0;
+}
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  list-style-type: none;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.active {
+  font-weight: bold;
 }
 
 .center {

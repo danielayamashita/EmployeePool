@@ -31,8 +31,9 @@ const LoginPage = (props) => {
         user_ids.forEach((user_id) => {
             if(props.users[user_id].id == username){
                 if (props.users[user_id].password == password){
-                    props.dispatch(setAuthedUser(props.users[user_id].id));
-                    navigate("/new")
+                    var id = props.users[user_id].id;
+                    props.dispatch(setAuthedUser(id));
+                    navigate(`/Dashboard/${id}`)
                 }
             }
         });
@@ -64,7 +65,7 @@ const LoginPage = (props) => {
     </div>);
 }
 
-const mapStateToProps = ({  users,authedUser }) => {
+const mapStateToProps = ({users,authedUser }) => {
 
   
     return {
