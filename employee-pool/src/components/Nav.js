@@ -1,9 +1,14 @@
 import { Link } from "react-router-dom";
 import { connect} from "react-redux";
+import {handleUserLogout} from "../actions/authedUser"
 
 
-const Nav = ({authedUser}) => {
+const Nav = ({dispatch,authedUser}) => {
 
+  const logoutUser = () => {
+    dispatch(handleUserLogout());
+  }
+ 
   console.log(authedUser)
   return (
     <nav className="nav">
@@ -16,6 +21,14 @@ const Nav = ({authedUser}) => {
         </li>
         <li>
           <Link to={`/new/${authedUser}`}>New</Link>
+        </li>
+
+        <li>
+          <Link to={`/`} onClick={logoutUser}>Logout</Link>
+        </li>
+
+        <li>
+          <span>{authedUser}</span>
         </li>
       </ul>
     </nav>

@@ -26,8 +26,7 @@ const LoginPage = (props) => {
         e.preventDefault();
 
         var user_ids = Object.keys(props.users); 
-        
-   
+
         user_ids.forEach((user_id) => {
             if(props.users[user_id].id == username){
                 if (props.users[user_id].password == password){
@@ -37,8 +36,6 @@ const LoginPage = (props) => {
                 }
             }
         });
-
-
 
 
         setIsSubmitted(true)
