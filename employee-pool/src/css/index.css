@@ -28,6 +28,11 @@ code {
   padding: 10px;
 }
 
+.error-login{
+  background-color:#ffcbcb;
+
+}
+
 .nav ul {
   display: flex;
   flex-direction: row;
