@@ -4,9 +4,14 @@ import {useEffect} from "react";
 import {getClassifiedPool} from "../actions/pools"
 
 import { connect} from "react-redux";
+// import {handleGetUsers,handleGetPools} from "../actions/shared"
+
+
 
 const Dashboard = (props) => {
     useEffect(() => {
+      // props.dispatch(handleGetUsers());
+      // props.dispatch(handleGetPools());
 
         props.dispatch(getClassifiedPool(props.pools,props.users[props.authedUser]))
       }, []);

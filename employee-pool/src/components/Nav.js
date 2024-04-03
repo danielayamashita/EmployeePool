@@ -8,8 +8,7 @@ const Nav = ({dispatch,authedUser}) => {
   const logoutUser = () => {
     dispatch(handleUserLogout());
   }
- 
-  console.log(authedUser)
+
   return (
     <nav className="nav">
       <ul>
@@ -20,7 +19,7 @@ const Nav = ({dispatch,authedUser}) => {
           <Link to={`/leaderboard/${authedUser}`}>Leaderboard</Link>
         </li>
         <li>
-          <Link to={`/new/${authedUser}`}>New</Link>
+          <Link to={`/add/${authedUser}`}>New</Link>
         </li>
 
         <li>

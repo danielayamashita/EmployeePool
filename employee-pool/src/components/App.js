@@ -12,6 +12,7 @@ import LoginPage from './LoginPage';
 import Dashboard from "./Dashboard"
 import Leaderboard from "./Leaderboard"
 import NewPool from "./NewPool"
+import PoolDetail from "./PoolDetail"
 
 const App = (props) => {
 
@@ -27,7 +28,8 @@ const App = (props) => {
         <Route path="/" exact element ={<LoginPage/>}/>
         <Route path="/Dashboard/:id" element ={<Dashboard/>}/>
         <Route path="/leaderboard/:id" element ={<Leaderboard/>}/>
-        <Route path="/new/:id" element ={<NewPool/>}/>
+        <Route path="/add/:id" element ={<NewPool/>}/>
+        <Route path="/question/:id" element={<PoolDetail/>}/>
       </Routes>
     </div>
   );
