@@ -1,4 +1,4 @@
-import { GET_CLASSIFIED_POOLS, GET_POOLS } from "../actions/pools";
+import { GET_CLASSIFIED_POOLS, GET_POOLS, ADD_POOL } from "../actions/pools";
 
 
 export default function pools(state = {new:[], answered:[]}, action) {
@@ -13,6 +13,13 @@ export default function pools(state = {new:[], answered:[]}, action) {
         (pool) => !answeredPools.includes(pool)
       );
       return { ...state, answered: answeredPools, new: newPools };
+    
+    case ADD_POOL:
+      
+      state.pools[action.pools.id] = action.pools
+      console.log("add pool ",state);
+      console.log("ID ",action.pools.id);
+      return state;
 
     default:
       return state;

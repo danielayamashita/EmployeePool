@@ -1,9 +1,10 @@
 import { handleGetUsers, handleGetPools } from "../actions/shared";
-import { _saveQuestionAnswer } from "../utils/_DATA";
+import { _saveQuestionAnswer,_saveQuestion } from "../utils/_DATA";
 import { subimitVote, removeVote } from "./users";
 
 export const GET_CLASSIFIED_POOLS = "GET_CLASSIFIED_POOLS";
 export const GET_POOLS = "GET_POOLS";
+export const ADD_POOL = "ADD_POOL";
 
 export function getClassifiedPool(pools, user) {
   return {
@@ -19,6 +20,27 @@ export function getPools(pool) {
     pool,
   };
 }
+
+export function addPool(pools){
+  console.log("addPool")
+  return {
+    type: ADD_POOL,
+    pools
+  }
+}
+
+export function handleCreatePool(optionOneText, optionTwoText ,author){
+
+  return (dispatch) => {
+
+    return _saveQuestion({optionOneText: optionOneText,
+       optionTwoText: optionTwoText,
+       author: author}).then((questions)=> dispatch(addPool(questions))).then(
+        () => dispatch(handleGetPools()));
+    }
+  };
+ 
+
 
 export function handleAddVote(pool_id, user, answer) {
   return (dispatch) => {

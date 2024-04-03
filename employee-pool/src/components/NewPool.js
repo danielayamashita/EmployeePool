@@ -1,7 +1,13 @@
 import Nav from "./Nav";
 import { useState } from "react";
+import {handleCreatePool} from "../actions/pools"
+import { connect} from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-const NewPool = () => {
+const NewPool = (props) => {
+
+   const navigate = useNavigate();
+
   const [optionOneText, setOptionOneText] = useState("");
   const [optionTwoText, setOptionTwoText] = useState("");
 
@@ -17,10 +23,16 @@ const NewPool = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Submit")
+
+    
+    props.dispatch(handleCreatePool(optionOneText,optionTwoText,props.authedUser));
+
+    setOptionOneText("");
+    setOptionTwoText("");
+
+    // navigate(`/Dashboard/${props.authedUser}`)
 
   }
-
 
   return (
     <div>
@@ -61,4 +73,7 @@ const NewPool = () => {
   );
 };
 
-export default NewPool;
+const mapStateToProps = ({ authedUser}) => ({
+    authedUser: authedUser,
+});
+export default connect(mapStateToProps)(NewPool);
