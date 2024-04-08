@@ -18,7 +18,7 @@ const Dashboard = (props) => {
 
     return (
         <div>
-            <Nav/>
+            
             <PoolGroup type="New Questions" poolIds={props.pools.new}/>
             <PoolGroup type="Done" poolIds={props.pools.answered}/>
             

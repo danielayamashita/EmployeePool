@@ -7,15 +7,17 @@ import { BrowserRouter } from "react-router-dom";
 import { createStore } from "redux";
 import middleware from "./middleware";
 import reducer from "./reducers";
+import { createRoot } from 'react-dom/client';
 
 const store = createStore(reducer,middleware);
 
 
-ReactDOM.render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </Provider>,
-  document.getElementById("root")
-);
+// After
+const container = document.getElementById('root');
+const root = createRoot(container); // createRoot(container!) if you use TypeScript
+root.render(<Provider store={store}>
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+</Provider>);
+

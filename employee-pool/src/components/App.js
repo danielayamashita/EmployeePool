@@ -9,10 +9,11 @@ import {useEffect} from "react";
 // import LoadingBar from "react-redux-loading-bar";
 
 import LoginPage from './LoginPage';
-import Dashboard from "./Dashboard"
+import HomePage from "./HomePage"
 import Leaderboard from "./Leaderboard"
 import NewPool from "./NewPool"
 import PoolDetail from "./PoolDetail"
+import Nav from "./Nav"
 
 const App = (props) => {
 
@@ -24,13 +25,15 @@ const App = (props) => {
   return (
     <div>
       {/* <LoadingBar /> */}
+      <Nav/>
       <Routes>
-        <Route path="/" exact element ={<LoginPage/>}/>
-        <Route path="/Dashboard/:id" element ={<Dashboard/>}/>
-        <Route path="/leaderboard/:id" element ={<Leaderboard/>}/>
-        <Route path="/add/:id" element ={<NewPool/>}/>
+        <Route path="/" exact element ={<HomePage/>}/>
+        <Route path="/leaderboard" element ={<Leaderboard/>}/>
+        <Route path="/add" element ={<NewPool/>}/>
         <Route path="/question/:id" element={<PoolDetail/>}/>
       </Routes>
+
+      
     </div>
   );
 }

@@ -3,6 +3,7 @@ import { useState } from "react";
 import {handleCreatePool} from "../actions/pools"
 import { connect} from "react-redux";
 import { useNavigate } from "react-router-dom";
+import LoginPage from "./LoginPage";
 
 const NewPool = (props) => {
 
@@ -36,7 +37,7 @@ const NewPool = (props) => {
 
   return (
     <div>
-      <Nav />
+      {props.authedUser ?
       <div className="container-new-pool">
         <form onSubmit={handleSubmit}>
           <h1>Would You Rather</h1>
@@ -68,7 +69,9 @@ const NewPool = (props) => {
             Submit
           </button>
         </form>
-      </div>
+      </div>:
+      <LoginPage/>
+      }
     </div>
   );
 };
