@@ -51,16 +51,7 @@ const LoginPage = (props) => {
     <div className="center">
       
 
-      
-      {/* <div style='background-image:url("../images/sarahedo.png")'></div> */}
-      {/* <Image
-                      src="/sarahedo"
-                      avatar
-                      spaced="right"
-                      verticalAlign="bottom"
-                      alt=""
-                    /> */}
-      
+         
 
       {isSubmitted && <ErrorLogin />}
       <h1>Employee Pool</h1>
@@ -68,6 +59,7 @@ const LoginPage = (props) => {
         <h3>User</h3>
         <input
           id="name"
+          data-testid="input-name"
           type="User"
           placeholder="User"
           value={username}
@@ -75,6 +67,7 @@ const LoginPage = (props) => {
         ></input>
         <h3>Password:</h3>
         <input
+          data-testid="input-password"
           id="name"
           type="text"
           placeholder="Password"
@@ -82,7 +75,7 @@ const LoginPage = (props) => {
           onChange={handleChangePassword}
         ></input>
         <br />
-        <button className="btn" type="submit">
+        <button data-testid="btn-submit" className="btn" type="submit">
           Login
         </button>
       </form>

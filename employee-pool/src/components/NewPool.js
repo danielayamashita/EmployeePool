@@ -64,6 +64,7 @@ const NewPool = (props) => {
           <button
             className="btn"
             type="submit"
+            data-testid="btn-submit"
             disabled={optionOneText === "" || optionTwoText === ""}
           >
             Submit

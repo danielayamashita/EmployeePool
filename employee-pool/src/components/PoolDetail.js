@@ -39,7 +39,6 @@ const mapStateToProps = ({ detailPool, pools, authedUser, users }) => ({
   users: users,
   authedUser: authedUser,
   detail: detailPool,
-  allPools: pools,
 });
 
 export default connect(mapStateToProps)(PoolDetail);
