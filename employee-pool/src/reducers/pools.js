@@ -28,8 +28,7 @@ export default function pools(state = {new:[], answered:[]}, action) {
     case ADD_POOL:
       
       state.pools[action.pools.id] = action.pools
-      console.log("add pool ",state);
-      console.log("ID ",action.pools.id);
+
       return state;
 
     default:

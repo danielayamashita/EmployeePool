@@ -1,4 +1,4 @@
-import Nav from "./Nav";
+
 import { useState } from "react";
 import {handleCreatePool} from "../actions/pools"
 import { connect} from "react-redux";
@@ -22,16 +22,18 @@ const NewPool = (props) => {
     setOptionTwoText(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     
-    props.dispatch(handleCreatePool(optionOneText,optionTwoText,props.authedUser));
+
+    
+    await props.dispatch(handleCreatePool(optionOneText,optionTwoText,props.authedUser));
 
     setOptionOneText("");
     setOptionTwoText("");
 
-    // navigate(`/Dashboard/${props.authedUser}`)
+    navigate(`/`)
 
   }
 

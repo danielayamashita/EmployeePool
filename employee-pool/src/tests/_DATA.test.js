@@ -1,5 +1,7 @@
 // isUtensilAvailable.js
-import { _saveQuestion,_saveQuestionAnswer } from "../utils/_DATA";
+import { _saveQuestion,_saveQuestionAnswer } from "../utils/_DATA"
+
+
 
 describe("isDataAPIAvailable", () => {
   it("will create a new question following the correct structure if right input is givent to _saveQuestion. ", async () => {
@@ -50,7 +52,7 @@ describe("isDataAPIAvailable", () => {
         answer: answer,
       });
 
-    console.log(result)
+
 
     expect(result).toEqual(true);
 

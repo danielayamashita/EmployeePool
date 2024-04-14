@@ -2,15 +2,13 @@ import { useState } from "react";
 import { connect } from "react-redux";
 import { setAuthedUser } from "../actions/authedUser";
 import ErrorLogin from "./ErrorLogin";
-import { useNavigate } from "react-router-dom";
-import yourImage from '../images/sarahedo.png'; // Import your image file
+
 
 
 
 const LoginPage = (props) => {
 
-  
-  const navigate = useNavigate();
+
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");

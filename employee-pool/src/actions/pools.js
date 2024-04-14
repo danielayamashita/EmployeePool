@@ -22,7 +22,6 @@ export function getPools(pool) {
 }
 
 export function addPool(pools){
-  console.log("addPool")
   return {
     type: ADD_POOL,
     pools
@@ -34,10 +33,9 @@ export function handleCreatePool(optionOneText, optionTwoText ,author){
   return (dispatch) => {
 
     return _saveQuestion({optionOneText: optionOneText,
-       optionTwoText: optionTwoText,
-       author: author}).then((questions)=> dispatch(addPool(questions))).then(
-        () => dispatch(handleGetPools()));
-    }
+      optionTwoText: optionTwoText,
+      author: author}).then((questions)=> dispatch(addPool(questions)));
+   }
   };
  
 

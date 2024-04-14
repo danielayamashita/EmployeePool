@@ -7,6 +7,7 @@ import ToggleQuestions from "./ToggleQuestions";
 
 
 
+
 const Dashboard = (props) => {
     useEffect(() => {
         props.dispatch(getClassifiedPool(props.pools,props.users[props.authedUser]))
@@ -14,7 +15,8 @@ const Dashboard = (props) => {
 
     return (
         <div>
-          {console.log(props.pools.answered)}
+          
+          
           <ToggleQuestions answeredPools={props.pools.answered} newPools={props.pools.new}/>            
         </div>
     );

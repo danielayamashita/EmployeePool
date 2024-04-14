@@ -15,6 +15,7 @@ import NewPool from "./NewPool"
 import PoolDetail from "./PoolDetail"
 import Nav from "./Nav"
 
+
 const App = (props) => {
 
   useEffect(() => {
@@ -24,13 +25,18 @@ const App = (props) => {
 
   return (
     <div>
-      {/* <LoadingBar /> */}
+      
+      
       <Nav/>
+      
       <Routes>
         <Route path="/" exact element ={<HomePage/>}/>
-        <Route path="/leaderboard" element ={<Leaderboard/>}/>
-        <Route path="/add" element ={<NewPool/>}/>
-        <Route path="/question/:id" element={<PoolDetail/>}/>
+        <Route path="/leaderboard" exact  element ={<Leaderboard/>}/>
+        <Route path="/add" exact  element ={<NewPool/>}/>
+        <Route path="/question/:id" exact  element={<PoolDetail/>}/>
+
+        {/* this route will catch any route that wasnt matched in previous routes */}
+        <Route element={<HomePage/>}/>
       </Routes>
 
       
@@ -39,6 +45,7 @@ const App = (props) => {
 }
 
 const mapStateToProps = ({  }) => ({
+  
 });
 
 export default connect(mapStateToProps)(App);

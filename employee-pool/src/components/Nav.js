@@ -23,7 +23,6 @@ const Nav = ({ dispatch, authedUser, users }) => {
         <div className="nav-right">
           
 
-          {/* <img src={} alt={`Avatar of ${authedUser}`} className="avatar" /> */}
           <li>
             {authedUser ? (
               <Link to={`/`} onClick={logoutUser}>
@@ -35,7 +34,8 @@ const Nav = ({ dispatch, authedUser, users }) => {
           </li>
           <li>
             {authedUser ? (
-              <img scr={users[authedUser].avatarURL} alt="Avatar" />
+              <img className="img-avatar-authed-user" src={users[authedUser].avatarURL} alt="avatar" />
+     
             ) : (
               <div></div>
             )}

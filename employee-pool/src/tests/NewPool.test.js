@@ -30,20 +30,7 @@ describe("NewPool", () => {
     expect(component).toMatchSnapshot();
     });
 
-    // it('renders learn react link', () => {
-    //     var component  = render(
-    //         <MemoryRouter>
-    //         <Provider store={store}>
-    //         <NewPool />
-    //         </Provider>
-    //         </MemoryRouter>
-    //     );
 
-    //     console.log(store)
-    
-    //     var submitButton = component.getByRole('button');
-    //     expect(submitButton).toBeDisabled();
-    //     });
 
 
 });

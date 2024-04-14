@@ -1,18 +1,20 @@
 import { connect } from "react-redux";
-import Nav from "./Nav";
 import Option from "./Option";
 import LoginPage from "./LoginPage";
 import ErrorPage from "./ErrorPage";
 
 const PoolDetail = (props) => {
+
+
   return (
     <div>
     {props.detail && props.authedUser?
     <div>
-      {props.authedUser ? (
+      {props.detail.id ? (
         <div className="center" >
           <h3 className="center">{`Pool by ${props.detail.author}`}</h3>
-          <img scr={props.users[props.authedUser].avatarURL} alt="Avatar" />
+          <img className="img-avatar" src={props.users[props.detail.author].avatarURL} alt="avatar" />
+         
 
           <h3 className="center">Would You Rather</h3>
 
@@ -23,13 +25,13 @@ const PoolDetail = (props) => {
           </div>
         </div>
       ) : (
-        <LoginPage />
+        <ErrorPage />
 
         
       )}
     </div>
     :
-    <div><ErrorPage/></div>
+    <div><LoginPage/></div>
     }
     </div>
   );

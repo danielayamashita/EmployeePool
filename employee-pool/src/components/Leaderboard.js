@@ -23,18 +23,15 @@ const Leaderboard = (props) => {
         ranked_users[i + 1] = temp;
 
         // Switch
-        var temp = kpi[i];
+        temp = kpi[i];
         kpi[i] = kpi[i + 1];
         kpi[i + 1] = temp;
       }
     }
   }
 
-  var indices = kpi.sort();
 
-  console.log("Sort", kpi);
 
-  console.log(Object.keys(props.users));
   return (
     <div>
       {props.authedUser ? (
@@ -44,6 +41,7 @@ const Leaderboard = (props) => {
               <td>Users</td>
               <td>Answered</td>
               <td>Created</td>
+              <td>Score</td>
             </tr>
             {ranked_users.map((id) => (
               <UserTag key={id} id={id} />
