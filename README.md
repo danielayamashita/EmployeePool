@@ -1,98 +1,37 @@
 # Employee Polls Project
 
-This is the starter code for the final assessment project for Udacity's React & Redux course.
+This repository contains the source code for the final assessment project for Udacity's React & Redux course.
 
-The `_DATA.js` file represents a fake database and methods that let you access the data. The only thing you need to edit in the ` _DATA.js` file is the value of `avatarURL`. Each user should have an avatar, so you’ll need to add the path to each user’s avatar.
+It is a web dashboard developped to be used by employees of a big company with a initiative of Human Resources department. In order to improve collaboration and transparency within the company, every employee can access the application and create a poll with two proposed solutions. Employees can then vote on these solutions and see which solutions have the most votes. In addition, HR has requested you have a dashboard that lists every employee ordered by the number of polls they've created and answered. To give employees incentive to use your application, HR will give a prize each quarter for the top employees who have created and answered the most polls.
 
-Using the provided starter code, you'll build a React/Redux front end for the application. We recommend using the [Create React App](https://github.com/facebook/create-react-app) to bootstrap the project.
+# How to install
 
-## Data
+The entire dashboard was built using JavaScript and Node JS. For this reason, to install the application, it is necessary to install: 
+* [Node JS](https://nodejs.org/en/), version 20.11.1.
+* A modern webbrowser as [Chrome](https://www.google.com/chrome/).
 
-There are two types of objects stored in our database:
+Once satisfying the requirements, it is necessary to install the project dependencies and launch the application. For this, you should:
 
-* Users
-* Questions
+1. Navigate to the folder `employee-pool`
+2. Run `npm install` to install dependencies.
+3. Run `npm start` to start the development server.
 
-### Users
+After these steps, you should see the web dashboard running on the a localhost at port 3000, as shown in the Figure below.
 
-Users include:
+![alt text](/images/image.png)
 
-| Attribute    | Type             | Description           |
-|-----------------|------------------|-------------------         |
-| id                 | String           | The user’s unique identifier |
-| password   | String           | The user’s password in order to log in the application |
-| name          | String           | The user’s first name  and last name     |
-| avatarURL  | String           | The path to the image file |
-| questions | Array | A list of ids of the polling questions this user created|
-| answers      | Object         |  The object's keys are the ids of each question this user answered. The value of each key is the answer the user selected. It can be either `'optionOne'` or `'optionTwo'` since each question has two options.
+# Code structure overview
 
-### Questions
+The entire code of the dashboard is located in the folder `/employee-pool/src`. The code follows a modular structure that was divided into 8 parts, notably:
 
-Questions include:
+* __CSS__: it countains the file responsible for defining the style of the user interface (UI). It defines the color, shape, and location of each component composing the UI.
+* __Components__: it contains all the react components composing the entire UI. The components were divide to be simple and reusable.
+* __Actions__: it contains all action creators that are used in the web dashboard. 
+* __Images__: it contains all images used int the web dashboard, especially the avatar images.
+* __Middleware__: it contains all the middlewares. In this project it is used only the _thunk_ middleware.
+* __Reducers__: it contains all the reducers used in the dashboard.
+* __Test__: it contains all test files. There are at least 10 test assessment to guarantee the quality of the dashboard.
+* __Utils__: it contains the database API (`DATA_.js`). It is a facke database used to mimic the real behaviour of a database. It emulates the asynchronous behaviour of real databases.
 
-| Attribute | Type | Description |
-|-----------------|------------------|-------------------|
-| id                  | String | The question’s unique identifier |
-| author        | String | The author’s unique identifier |
-| timestamp | String | The time when the question was created|
-| optionOne | Object | The first voting option|
-| optionTwo | Object | The second voting option|
 
-### Voting Options
-
-Voting options are attached to questions. They include:
-
-| Attribute | Type | Description |
-|-----------------|------------------|-------------------|
-| votes             | Array | A list that contains the id of each user who voted for that option|
-| text                | String | The text of the option |
-
-Your code will talk to the database via 4 methods:
-
-* `_getUsers()`
-* `_getQuestions()`
-* `_saveQuestion(question)`
-* `_saveQuestionAnswer(object)`
-
-1) `_getUsers()` Method
-
-*Description*: Get all of the existing users from the database.  
-*Return Value*: Object where the key is the user’s id and the value is the user object.
-
-2) `_getQuestions()` Method
-
-*Description*: Get all of the existing questions from the database.  
-*Return Value*: Object where the key is the question’s id and the value is the question object.
-
-3) `_saveQuestion(question)` Method
-
-*Description*: Save the polling question in the database. If one of the parameters are missing, an error is thrown.
-*Parameters*:  Object that includes the following properties: `author`, `optionOneText`, and `optionTwoText`. More details about these properties:
-
-| Attribute | Type | Description |
-|-----------------|------------------|-------------------|
-| author | String | The id of the user who posted the question|
-| optionOneText| String | The text of the first option |
-| optionTwoText | String | The text of the second option |
-
-*Return Value*:  An object that has the following properties: `id`, `author`, `optionOne`, `optionTwo`, `timestamp`. More details about these properties:
-
-| Attribute | Type | Description |
-|-----------------|------------------|-------------------|
-| id | String | The id of the question that was posted|
-| author | String | The id of the user who posted the question|
-| optionOne | Object | The object has a text property and a votes property, which stores an array of the ids of the users who voted for that option|
-| optionTwo | Object | The object has a text property and a votes property, which stores an array of the ids of the users who voted for that option|
-|timestamp|String | The time when the question was created|
-
-4) `_saveQuestionAnswer(object)` Method
-
-*Description*: Save the answer to a particular polling question in the database. If one of the parameters are missing, an error is thrown.
-*Parameters*: Object that contains the following properties: `authedUser`, `qid`, and `answer`. More details about these properties:
-
-| Attribute | Type | Description |
-|-----------------|------------------|-------------------|
-| authedUser | String | The id of the user who answered the question|
-| qid | String | The id of the question that was answered|
-| answer | String | The option the user selected. The value should be either `"optionOne"` or `"optionTwo"`|
 
