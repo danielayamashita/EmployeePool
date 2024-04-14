@@ -14,6 +14,7 @@ const Dashboard = (props) => {
 
     return (
         <div>
+          {console.log(props.pools.answered)}
           <ToggleQuestions answeredPools={props.pools.answered} newPools={props.pools.new}/>            
         </div>
     );
