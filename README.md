@@ -33,5 +33,14 @@ The entire code of the dashboard is located in the folder `/employee-pool/src`. 
 * __Test__: it contains all test files. There are at least 10 test assessment to guarantee the quality of the dashboard.
 * __Utils__: it contains the database API (`DATA_.js`). It is a facke database used to mimic the real behaviour of a database. It emulates the asynchronous behaviour of real databases.
 
+# Unit Tests
+
+All unit tests can be launched by using `npm run test` and by pressing `a` to select run all existing unit tests. The unit tests are located in the folder `employee-pool/tests`. The figure below show the menu indicating that the tests are going to be lauched.
+
+![alt text](images/UnitTest.png)
+
+By selecting `a`, it is possible to see the results of tests:
+
+![alt text](images/UnitTestResults.png)
 
 
