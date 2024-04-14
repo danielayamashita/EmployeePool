@@ -8,7 +8,7 @@ import {useEffect} from "react";
 
 // import LoadingBar from "react-redux-loading-bar";
 
-import LoginPage from './LoginPage';
+
 import HomePage from "./HomePage"
 import Leaderboard from "./Leaderboard"
 import NewPool from "./NewPool"
